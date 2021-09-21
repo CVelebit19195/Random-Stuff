@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A1</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script>
+        $(document).ready(function () {
+            $('body').click(function () {
+                $('#image1').click(function () {
+                    $('#image1').hide();
+                });
+
+                $('#button1').click(function () {
+                    $('#image1').show();
+                });
+
+                $('#image2').click(function () {
+                    $('#image2').fadeOut();
+                });
+
+                $('#button2').click(function () {
+                    $('#image2').fadeIn();
+                });
+
+                $('#image3').click(function () {
+                    $('#image3').slideUp();
+                });
+
+                $('#button3').click(function () {
+                    $('#image3').slideDown();
+                });
+
+                $('#button4').click(function () {
+                    $('#image4').slideToggle(1000);
+                    $('#image4').complete();
+                });
+
+                $('#dptxt').click(function () {
+                    $("#dptxt").before("<p>More Text</p>");
+                });
+            });
+
+            $('body').hover(function () {
+                $('#dptxt2').hover(function () {
+                    $("#dptxt2").after("<p>More Text</p>");
+                });
+            });
+        });
+    </script>
+</head>
+
+
+
+<body>
+    <! -- I used .click, .hover, .show, .hide, .fadeOut, .fadeIn, .slideUp, .slideDown, .slideToggle, .complete, .before, and .after-->
+    <h1>This is the heading</h1>
+    <p>Click the pictures below to mess with them</p>
+
+    <img id=image1 src="image1.jfif" /><br />    <button id="button1"> Click me to bring the image back </button><br />    <img id=image2 src="image1.jfif" /><br />    <button id="button2"> Click me to fade the image back in</button><br />
+
+    <p>Click the pictures to get them to move around</p>
+
+    <img id=image3 src="image1.jfif" /><br />    <button id="button3"> Click me to pop the image back out</button><br />    <img id=image4 src="image1.jfif" /><br />    <button id="button4"> Click me to toggle the image </button><br />
+
+    <p id="dptxt">Click on me to add more text before me<br/></p>
+    <p id="dptxt2">Hover over me to add more text after me<br/></p>
+</body>
+</html>
