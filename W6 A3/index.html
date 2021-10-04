@@ -3,20 +3,40 @@
     <head>
         <meta charset="utf-8" />
         <title>Homepage</title>
+        <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('form').submit(function () {
+                    const city = document.getElementsByName("city")[0].value;
+                    const url = "http://api.openweathermap.org/data/2.5/weather?q=";
+                    const key = "&APPID=6dd641ddc542cb7222c3867088525460";
+                    $.get(url+city+key, function (res) {
+                        console.log(res);
+                        let weather = city + ": " + res.weather[0].description + "<br/>"
+                        let temperature = "Temperature: " + Math.round((res.main.temp - 273.15) * 9 / 5 + 32) + " F" + "<br/>"
+                        let coordinates = "Coords: " + res.coord.lat + ", " + res.coord.lon + "<br/>"
+                        $(".WeatherOutput").empty();
+                        $(".WeatherOutput").append(weather);
+                        $(".WeatherOutput").append(temperature);
+                        $(".WeatherOutput").append(coordinates);
+                    }, 'json');
+                    return false;
+                });
+            });
+        </script>
     </head>
+
 
     <body>
         <form>
-            <label>First Name:
-                <input type="text" name="firstName"/>
+            <label>City: 
+                <input type="text" id="city" name="city"/>
             </label>
-            
-            <label>Last Name:
-                <input type="text" name="lastName"/>
-            </label>
-
-            <input type="submit" value="The value"/> 
+            <input type="submit" value="Submit Query"/> 
         </form>
+
+        <div class="WeatherOutput">
+        </div>
     </body>
 
 </html>

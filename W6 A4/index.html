@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Disappearing Images</title>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+        <script>
+            $(document).ready(function () {
+                $('body').click(function () {
+                    $('#image1').click(function () {
+                        $('#image1').hide();
+                    });
+                    $('#image2').click(function () {
+                        $('#image2').hide();
+                    });
+                    $('#image3').click(function () {
+                        $('#image3').hide();
+                    });
+                    $('#image4').click(function () {
+                        $('#image4').hide();
+                    });
+                    $('#image5').click(function () {
+                        $('#image5').hide();
+                    });
+                    $('#image6').click(function () {
+                        $('#image6').hide();
+                    });
+                    $('#image7').click(function () {
+                        $('#image7').hide();
+                    });
+                    $('#image8').click(function () {
+                        $('#image8').hide();
+                    });
+
+                    $('#restore').click(function () {
+                        $('#image1').show();
+                        $('#image2').show();
+                        $('#image3').show();
+                        $('#image4').show();
+                        $('#image5').show();
+                        $('#image6').show();
+                        $('#image7').show();
+                        $('#image8').show();
+                    });
+                });
+            });
+        </script>
+        <style>
+            img{
+                width:300px;
+            }
+        </style>
+    </head>
+    <body>
+        <img id=image1 src="image1.jpg" />        <img id=image2 src="image1.jpg" />
+        <img id=image3 src="image1.jpg" />        <img id=image4 src="image1.jpg" />        <img id=image5 src="image1.jpg" />        <img id=image6 src="image1.jpg" />        <img id=image7 src="image1.jpg" />        <img id=image8 src="image1.jpg" /><br />        <button id="restore" style="background:green;"> Restore </button><br />
+    </body>
+</html>
