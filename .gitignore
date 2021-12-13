@@ -1,0 +1,7 @@
+*/node_modules/*
+.vs/VSWorkspaceState.json
+.vs/slnx.sqlite
+.vs/ProjectSettings.json
+.vs/Random-Stuff/config/applicationhost.config
+.vs/Random-Stuff/v16/.suo
+*.zip

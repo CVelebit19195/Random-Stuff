@@ -1,0 +1,33 @@
+img {
+    width: inherit;
+}
+.grid-container {
+    display: grid;
+    grid-template-rows: auto;
+    background-color: gray;
+    padding: 5px;
+}
+
+.grid-item {
+    background-color: black;
+    border: 1px solid gray;
+    font-size: 30px;
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    align-items: stretch;
+    background-color: #f1f1f1;
+    flex-direction: column;
+}
+
+.flex-container > div {
+    background-color: grey;
+    color: white;
+    width: auto;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}

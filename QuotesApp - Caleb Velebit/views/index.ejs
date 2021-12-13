@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Awesome Quotes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class = "container">
+        <br><br>
+        <div class ="row" style="margin-left:85px; border: 1px solid blue; border-radius:65px">
+        <div class="col">
+            <h1 style="text-align:center; font-weight:bold; color:blue"> Welcome to the Awesome Quotes App</h1>
+            <br><br>
+            <!-- <%- JSON.stringify(messages) %>  -->
+            <% if(messages.registration) { %>
+                <% for (var x of messages.registration) { %>
+                <p style="color:red"><%= x %></p>
+                <% } %>
+            <% } %>
+            <form  style="margin-left: 105px" action ="/process" method="post" >
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">Your name: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control col-6" id="name" name="name" placeholder="name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="quote" class="col-sm-2 col-form-label">Your favorite quote: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control col-6" id="quote" name="quote" placeholder="quote">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                     <input style="margin-left:40%" input type="submit" value ="add my quote" class="btn btn-info"> 
+                    </div>
+                    <br>
+                    <div class="col">
+                           <a href="http://127.0.0.1:8000/quotes" style="margin-left:10%" class="btn btn-primary">Skip</a>
+                    </div>
+                </div>
+                
+                <br><br>
+            </form>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
