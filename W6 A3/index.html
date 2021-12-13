@@ -9,7 +9,7 @@
                 $('form').submit(function () {
                     const city = document.getElementsByName("city")[0].value;
                     const url = "http://api.openweathermap.org/data/2.5/weather?q=";
-                    const key = "&APPID=6dd641ddc542cb7222c3867088525460";
+                    const key = "openweathermap key";
                     $.get(url+city+key, function (res) {
                         console.log(res);
                         let weather = city + ": " + res.weather[0].description + "<br/>"
