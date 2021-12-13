@@ -1,0 +1,24 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#container{
+	width: 45%;
+	padding-top: 2%;
+	margin: auto;
+}
+#convos{
+	outline: 1px solid black;
+	padding: 20px;
+	height: 400px;
+	margin: 20px auto;
+	overflow-y:scroll;
+}
+textarea{
+	width: 100%;
+}
+button{
+	float: right;
+	margin-top: 10px;
+	padding: 2px;
+}

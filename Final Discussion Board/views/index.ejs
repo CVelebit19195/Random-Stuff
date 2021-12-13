@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+         var IDcount = 0;
+         var id = -1;
+         $(document).ready(function (){
+            // this triggers the connection event in our server!
+            var socket = io.connect();
+            // we'll write all the socket stuff after the above line!
+            var user = prompt("Please enter your name:");
+            socket.emit('new_user', {res: user});
+            socket.on('user', function (data){
+                id = data.user;
+                $("#user").attr("value", id);
+                $('#convos').html('');
+                for(convo in data.res){
+                    $('#convos').append('<p>'+data.res[convo]+'</p>');
+                }
+            });
+            $("form").submit(function(){
+                console.log($("form"));
+                var message = $("form").serialize();
+                socket.emit("message", {res:(message)});
+                return false;
+            })
+            socket.on('convos', function (data){
+                $('#convos').html('');
+                for(convo in data.res){
+                    console.log((data.res[convo]).split(':'));
+                    const array = (data.res[convo]).split(':');
+                    console.log(array[0]);
+                    if (array[0] == '0'){
+                        console.log("ok, attaching message to main");
+                        $('#convos').append('<p id='+ IDcount +'>'+ array[1] +':'+ array[2] +'</p>');
+                        $('#convos').append('<form action="/" method="post"><input id='+"user"+ IDcount +' type="hidden" name="user"><input type="hidden" name="numberAttached" value='+ IDcount +'><textarea name="message" placeholder="enter your message here"></textarea><button type="submit">Send</button>')
+                        IDcount+=1;
+                    }
+                    else{
+                        $('#'+array[0]).append('<p id='+ IDcount +'>'+ array[1] +':'+ array[2] +'</p>');
+                    }
+                    
+                }
+            });
+        })
+	</script>
+</head>
+<body>
+	<div id="container">
+        <h1>Conversation Board</h1>
+        <div id="convos"></div>
+        <form action="/" method="post">
+            <input id = "user" type="hidden" name="user">
+            <input type="hidden" name="numberAttached" value="0">
+            <textarea name="message" placeholder="enter your message here"></textarea>
+            <button type="submit">Send</button>
+        </form>
+	</div>
+</body>
+</html>
